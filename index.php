@@ -31,7 +31,7 @@ if(isset($_POST['email']))
         {
             if($u->logar($email,$senha))
             {
-                header("location: areaPrivada.php");
+                header("location: indexCliente.php");
             }
             else 
             {
