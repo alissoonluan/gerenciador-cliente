@@ -49,10 +49,10 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
 -- Copiando estrutura para tabela crud.tb_usuario
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `usu_id` int(11) NOT NULL AUTO_INCREMENT,
-  `usu_login` varchar(40) NOT NULL,
-  `usu_senha` varchar(20) NOT NULL,
+  `usu_senha` varchar(32) NOT NULL,
   `usu_nome` varchar(100) NOT NULL,
   `usu_email` varchar(100) NOT NULL,
+  `usu_telefone` varchar(30) NOT NULL,
   PRIMARY KEY (`usu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
