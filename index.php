@@ -5,7 +5,7 @@ $u = new Usuario;
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
-    <title>Projeto Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@ $u = new Usuario;
     </div>
 <?php
 if(isset($_POST['email']))
-{
+{  
     $email = addslashes($_POST['email']);
     $senha = addslashes($_POST['senha']);
     

@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `cli_nome` varchar(100) NOT NULL,
   `cli_dtnascimento` date DEFAULT NULL,
   `cli_cpf` varchar(20) NOT NULL,
-  `cli_rg` varchar(20) NOT NULL,
   `cli_telefone` varchar(15) NOT NULL,
   PRIMARY KEY (`cli_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   PRIMARY KEY (`end_id`),
   KEY `end_cli_id` (`end_cli_id`),
   CONSTRAINT `tb_endereco_ibfk_1` FOREIGN KEY (`end_cli_id`) REFERENCES `tb_cliente` (`cli_id`)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.

@@ -6,12 +6,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
-    <title>Projeto Login</title>
+    <title>Cadastro Usuario</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="body-form-Cad">
-        <h1>CADASTRAR</h1>
+        <h1>CADASTRAR USUÁRIO</h1>
         <form method="POST">
             <input type="text" name="nome" placeholder="Nome Completo" maxlenght="100">
             <input type="text" name="telefone" placeholder="Telefone" maxlenght="30">
@@ -36,22 +36,22 @@ if(isset($_POST['nome']) )
         {
             if($senha == $confirmarSenha)
             {
-            if($u->cadastrar($nome, $telefone, $email, $senha)) 
-            {
-                ?>
-                <div id="msg-sucess">
-                    Cadastrado com sucesso! Acesse para entrar!
-                </div>
-                <?php
-            }
-            else 
-            {
-                ?>
-                <div class="msg-erro">
-                    Email já cadastrado
-                </div>
-                <?php
-            }
+                if($u->cadastrar($nome, $telefone, $email, $senha)) 
+                {
+                    ?>
+                    <div id="msg-sucess">
+                    <a href="index.php">Cadastrado com sucesso! Acesse para entrar! </a>
+                    </div>
+                    <?php
+                }
+                else 
+                {
+                    ?>
+                    <div class="msg-erro">
+                        Email já cadastrado
+                    </div>
+                    <?php
+                }
             }
 
             else 
