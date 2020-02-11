@@ -1,9 +1,9 @@
 <?php
     require_once 'Class/endereco.php';
     $e = new Endereco;
-    
+
     $id = $_GET['id'];
-    $e->conexao("crud", "localhost", "root", "");    
+    $e->conexao("crud", "localhost", "root", "");
     $enderecos = $e->select($id);
 
     ?>
@@ -24,7 +24,7 @@
     <br />
     <br />
 
-    <?php 
+    <?php
         $html = "<table id='index' width='100%'>";
         $html .= "<tr>
                     <th>Bairro</th>
@@ -45,11 +45,10 @@
                         <td><center>".$item["cidade"]."</center></td>
                         <td><center>".$item["numero"]."</center></td>
                         <td><center><a href='alterarEnd.php?id=".$item["id"]."'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a></center></td>
-                        <td><center><a href='deleteEnd.php?id=".$item["id"]."'><i class='fa fa-trash' aria-hidden='true'></i></a></center></td>
+                        <td><center><a href='deleteEnd.php?id=".$item["id"]."&cliId=$id'><i class='fa fa-trash' aria-hidden='true'></i></a></center></td>
                     </tr>";
-        }          
-       $html .= "</table>"; 
+        }
+       $html .= "</table>";
 
        echo $html;
     ?>
-

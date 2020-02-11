@@ -3,8 +3,9 @@
     $e = new Endereco;
 
     $id = $_GET['id'];
-    $e->conexao("crud", "localhost", "root", "");    
-    $endereco = $e->select($id);
+    $e->conexao("crud", "localhost", "root", "");
+    $endereco = $e->selectEnd($id);
+
 
     $bairro         = $endereco[0]["bairro"];
     $estado         = $endereco[0]["estado"];
@@ -12,14 +13,15 @@
     $pontReferencia = $endereco[0]["pontreferencia"];
     $cidade         = $endereco[0]["cidade"];
     $numero         = $endereco[0]["numero"];
-    
+    $idCli          = $endereco[0]["idCli"];
+
 
     ?>
 
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
-    <title>Login</title>
+    <title>Alterar Endereço</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,7 +34,7 @@
             <input type="text" value = <?php echo $pontReferencia; ?> name="pontReferencia" placeholder="Ponto de Referencia" maxlenght="100">
             <input type="text" value = <?php echo $cidade; ?> name="cidade" placeholder="Cidade" maxlenght="60">
             <input type="text" value = <?php echo $numero; ?> name="numero" placeholder="Numero" maxlenght="60">
-            <input type="hidden" value= <?php echo $id;?> name="id" >
+            <input type="hidden" value= <?php echo $idCli;?> name="idCli" >
             <input type="submit" value="EDITAR">
         </form>
     </div>
@@ -47,21 +49,21 @@ if(isset($_POST['bairro']) )
     $pontReferencia = addslashes($_POST['pontReferencia']);
     $cidade         = addslashes($_POST['cidade']);
     $numero         = addslashes($_POST['numero']);
-    $id             = ($_POST["id"]);
+    $idCli = $_POST['idCli'];
 
     if(!empty($bairro) && !empty($estado)  && !empty($cep) && !empty($pontReferencia) && !empty($cidade) && !empty($numero)) {
         $e->conexao("crud", "localhost", "root", "");
-        if($e->msgErro == "") 
+        if($e->msgErro == "")
         {
-            if($e->update($id, $bairro, $estado, $cep, $pontReferencia, $cidade, $numero )) 
+            if($e->update($id, $bairro, $estado, $cep, $pontReferencia, $cidade, $numero ))
             {
                 ?>
                 <div id="msg-sucess">
-                <a href="indexEndereco.php?id=$id"> Endereço Alterado com sucesso ! </a>
+                <a href="indexEndereco.php?id=<?php echo $idCli ?>"> Endereço Alterado com sucesso ! </a>
                 </div>
                 <?php
             }
-            else 
+            else
             {
                 ?>
                 <div class="msg-erro">
@@ -69,9 +71,9 @@ if(isset($_POST['bairro']) )
                 </div>
                 <?php
             }
-            
+
         }
-        else 
+        else
         {
             ?>
             <div class="msg-erro">

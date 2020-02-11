@@ -3,7 +3,8 @@
     $e = new Endereco;
 
     $id = $_GET['id'];
-    $e->conexao("crud", "localhost", "root", "");                     
+    $cliId = $_GET['cliId'];
+    $e->conexao("crud", "localhost", "root", "");
     $e->delete($id);
-    header("location: indexCliente.php");
+    header("location: indexEndereco.php?id=$cliId");
 ?>
