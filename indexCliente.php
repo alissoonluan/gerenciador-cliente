@@ -39,6 +39,7 @@
                     <th>Telefone</th>
                     <th>Alterar</th>
                     <th>Excluir</th>
+                    <th>Endereços</th>
                   </tr>";
         foreach($clientes as $item) {
             $html .= "<tr>
@@ -48,6 +49,7 @@
                         <td><center>".$item["telefone"]."</center></td>
                         <td><center><a href='alterar.php?id=".$item["id"]."'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a></center></td>
                         <td><center><a href='delete.php?id=".$item["id"]."'><i class='fa fa-trash' aria-hidden='true'></i></a></center></td>
+                        <td><center><a href='indexEndereco.php?id=".$item["id"]."'><i class='fa fa-address-card-o' aria-hidden='true'></i></a></center></td>
                     </tr>";
         }          
        $html .= "</table>"; 
